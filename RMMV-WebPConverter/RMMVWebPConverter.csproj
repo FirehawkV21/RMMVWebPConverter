@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>RMMVWebPConverter</RootNamespace>
+    <StartupObject>RMMVWebPConverter.Program</StartupObject>
+    <AssemblyVersion>1.0.0.20071</AssemblyVersion>
+    <FileVersion>1.0.0.20071</FileVersion>
+    <AssemblyName>RMMVWebPConverter</AssemblyName>
+    <PackageId>StudioACE.RMMVWebPConverter</PackageId>
+    <Version>1.0.0-20200312</Version>
+    <Authors>AceOfAces</Authors>
+    <Company>Studio ACE</Company>
+    <Product>RPG Maker Utilities</Product>
+    <Copyright>Copyright © 2019 Studio ACE. RPG Maker MV: KADOKAWA/YOJI OJIMA</Copyright>
+    <RepositoryUrl>https://github.com/acemod13/RMMVWebPConverter</RepositoryUrl>
+    <Description>This small command line cwebp wrapper app converts image files to WebP files so RPG Maker MV can load them (It works with the same idea that the Opus converter tool works). WebP can provide smaller file size while having the same image quality. The tool implements both the lossless and lossy conversions as well.</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <NeutralLanguage>en</NeutralLanguage>
+    <TieredCompilation>true</TieredCompilation>
+    <TieredCompilationQuickJit>true</TieredCompilationQuickJit>
+    <PublishReadyToRun>true</PublishReadyToRun>
+    <PublishTrimmed>true</PublishTrimmed>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
