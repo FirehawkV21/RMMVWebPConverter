@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RMMVWebPConverter.Properties;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -18,16 +19,17 @@ namespace RMMVWebPConverter
         private static readonly StringBuilder StringBuffer = new StringBuilder();
         private const string LosslessConversionSetup = "-z 9 -sharp_yuv -mt -quiet -o";
         private static readonly StringBuilder LossyConversionSetup = new StringBuilder(" - m 6 - q 85 - sharp_yuv - mt - quiet - o ");
-        private static readonly ProcessStartInfo _converterInfo = new ProcessStartInfo();
+        private static readonly ProcessStartInfo ConverterInfo = new ProcessStartInfo();
 
         static void Main(string[] args)
         {
-            Console.WriteLine("========================================================");
-            Console.WriteLine("= WebP Conversion and Preparation Tool for RPG Maker MV");
-            Console.WriteLine("= Version R1.00 ({0})", Assembly.GetExecutingAssembly().GetName().Version);
-            Console.WriteLine("= Developed by AceOfAces.");
-            Console.WriteLine("= Licensed under the MIT license.");
-            Console.WriteLine("========================================================\n");
+            Console.WriteLine(Resources.SpliterText);
+            Console.WriteLine(Resources.ProgramTitle);
+            Console.WriteLine(Resources.ProgramVersion, Assembly.GetExecutingAssembly().GetName().Version);
+            Console.WriteLine(Resources.ProgramAuthor);
+            Console.WriteLine(Resources.ProgramLicense);
+            Console.WriteLine(Resources.ProgramTitle);
+            Console.WriteLine();
 
             for (int i = 0; i < args.Length; i++)
             {
@@ -46,9 +48,9 @@ namespace RMMVWebPConverter
                             else
                             {
                                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                                Console.WriteLine("The folder does not exist.");
+                                Console.WriteLine(Resources.FolderDoesntExist);
                                 Console.ResetColor();
-                                Console.WriteLine("Press Enter/Return to exit.");
+                                Console.WriteLine(Resources.PushEnterToExit);
                                 Console.ReadLine();
                                 Environment.Exit(0);
                             }
@@ -57,15 +59,15 @@ namespace RMMVWebPConverter
                                 RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "cwebp.exe" : "cwebp")))
                             {
                                 Console.ForegroundColor = ConsoleColor.DarkGreen;
-                                Console.WriteLine("The location for the converter is set.");
+                                Console.WriteLine(Resources.ConverterLocationSet);
                             }
                             else
                             {
 
                                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                                Console.WriteLine("There is no cwebp in the folder.");
+                                Console.WriteLine(Resources.MissingcwebpApp);
                                 Console.ResetColor();
-                                Console.WriteLine("Press Enter/Return to exit.");
+                                Console.WriteLine(Resources.PushEnterToExit);
                                 Console.ReadLine();
                                 Environment.Exit(0);
                             }
@@ -80,15 +82,15 @@ namespace RMMVWebPConverter
                             {
                                 _sourceLocation = StringBuffer.ToString();
                                 Console.ForegroundColor = ConsoleColor.DarkGreen;
-                                Console.WriteLine("The location for source is set.");
+                                Console.WriteLine(Resources.SourceLocationSet);
                                 StringBuffer.Clear();
                             }
                             else
                             {
                                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                                Console.WriteLine("The source location doesn't exist.");
+                                Console.WriteLine(Resources.SourceLocationDoesntExist);
                                 Console.ForegroundColor = ConsoleColor.White;
-                                Console.WriteLine("Press Enter/Return to exit");
+                                Console.WriteLine(Resources.PushEnterToExit);
                                 Console.ReadLine();
                                 Environment.Exit(0);
                             }
@@ -101,7 +103,7 @@ namespace RMMVWebPConverter
                             StringBuffer.Insert(0, args[i + 1].Replace("\"", ""));
                             if (!Directory.Exists(StringBuffer.ToString())) Directory.CreateDirectory(StringBuffer.ToString());
                             _dropLocation = StringBuffer.ToString();
-                            Console.WriteLine("The location for the output is set.");
+                            Console.WriteLine(Resources.OutputFolderSet);
                             StringBuffer.Clear();
                         }
 
@@ -118,7 +120,7 @@ namespace RMMVWebPConverter
                             if (double.TryParse(args[i + 1], out var qualitySetting))
                             {
                                 Console.ForegroundColor = ConsoleColor.DarkGreen;
-                                Console.WriteLine("The quality setting for the lossy conversion is set to {0}", qualitySetting);
+                                Console.WriteLine(Resources.LossyImageQualitySet, qualitySetting);
                                 LossyConversionSetup.Replace("-q 85", "-q " + qualitySetting);
                                 Console.ResetColor();
                             }
@@ -136,45 +138,45 @@ namespace RMMVWebPConverter
             {
                 do
                 {
-                    Console.WriteLine("Where's the location of the cwebp?");
+                    Console.WriteLine(Resources.CwebpApplLocationQuestion);
                     _converterLocation = Console.ReadLine();
                     if (_converterLocation == null)
                     {
                         Console.ForegroundColor = ConsoleColor.DarkRed;
-                        Console.WriteLine("Please insert the path for cwebp.\n");
+                        Console.WriteLine(Resources.NoCwebpAppLocationSet);
                         Console.ResetColor();
                     }
                     else if (!Directory.Exists(_converterLocation))
                     {
                         Console.ForegroundColor = ConsoleColor.DarkRed;
-                        Console.Write("The directory isn't there. Please select an existing folder.\n");
+                        Console.Write(Resources.NoDirectoryFound);
                         Console.ResetColor();
                     }
                 } while (_converterLocation == null || !Directory.Exists(_converterLocation));
 
                 do
                 {
-                    Console.WriteLine("\nWhere are the files you want to convert to? ");
+                    Console.WriteLine(Resources.SourceFolderLocationQuestion);
                     _sourceLocation = Console.ReadLine();
-                    if (_sourceLocation == null) Console.WriteLine("Please specify the location of the folder.\n");
+                    if (_sourceLocation == null) Console.WriteLine(Resources.NoFolderSpecified);
                     else if (!Directory.Exists(_sourceLocation))
                     {
                         Console.ForegroundColor = ConsoleColor.DarkRed;
-                        Console.WriteLine("The folder you've selected isn't present.\n");
+                        Console.WriteLine(Resources.NoDirectoryFound);
                         Console.ResetColor();
                     }
                 } while (_sourceLocation == null || !Directory.Exists(_sourceLocation));
 
                 do
                 {
-                    //Ask the user where to put the processed audio files. If the folder isn't there create it.
-                    Console.WriteLine("\nWhere to put the converted files?");
+                    //Ask the user where to put the processed images. If the folder isn't there create it.
+                    Console.WriteLine(Resources.DestinationFolderLocationQuestion);
                     _dropLocation = Console.ReadLine();
                     if (_dropLocation == null)
-                        Console.WriteLine("Please specify the location of the folder.\n");
+                        Console.WriteLine(Resources.NoFolderSpecified);
                     else if (!Directory.Exists(_dropLocation))
                     {
-                        Console.WriteLine("Creating folder...\n");
+                        Console.WriteLine(Resources.FolderCreationMessage);
                         Directory.CreateDirectory(_dropLocation);
                     }
                 } while (_dropLocation == null);
@@ -182,11 +184,11 @@ namespace RMMVWebPConverter
                 if (_compressionMode == 0)
                 {
                     Console.WriteLine(
-                        "Should the conversion be:\n 1. Lossless (default, preserves a lot of detail but space savings are smaller)?\n 2. Lossy(smaller file size at the cost of image quality)?");
+                        Resources.ConversionModeQuestion);
                     var charBuffer = Console.ReadKey().KeyChar;
                     if (!int.TryParse(charBuffer.ToString(), out _compressionMode))
                     {
-                        Console.WriteLine("Looks like you gave a non-integer number. Applying the default setting.");
+                        Console.WriteLine(Resources.InvalidOptionMessage);
                         _compressionMode = 1;
                     }
                 }
@@ -194,7 +196,7 @@ namespace RMMVWebPConverter
 
             Console.WriteLine();
 
-            _converterInfo.FileName = Path.Combine(_converterLocation,
+            ConverterInfo.FileName = Path.Combine(_converterLocation,
                 RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "cwebp.exe" : "cwebp");
             IEnumerable<string> fileMap =
                 Directory.EnumerateFiles(_sourceLocation, "*.png", SearchOption.AllDirectories);
@@ -208,34 +210,34 @@ namespace RMMVWebPConverter
                     if (!Directory.Exists(StringBuffer.ToString()))
                         Directory.CreateDirectory(StringBuffer.ToString());
                     StringBuffer.Append(Path.GetFileName(imageFile));
-                    _converterInfo.Arguments =
+                    ConverterInfo.Arguments =
                          "\"" + imageFile + "\" " + (_compressionMode == 2 ? LossyConversionSetup.ToString() : LosslessConversionSetup) + " \"" + StringBuffer + "\"";
                     Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.Write("[{0}] ", DateTime.Now);
+                    Console.Write(Resources.TimecodeFormatString, DateTime.Now);
                     Console.ResetColor();
-                    Console.WriteLine("Converting {0} to WebP...", imageFile);
-                    var converterProcess = Process.Start(_converterInfo);
+                    Console.WriteLine(Resources.ImageConversionMessage, imageFile);
+                    var converterProcess = Process.Start(ConverterInfo);
                     converterProcess.WaitForExit();
                     if (converterProcess.ExitCode != 0)
                     {
                         Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.Write("[{0}] ", DateTime.Now);
+                        Console.Write(Resources.TimecodeFormatString, DateTime.Now);
                         Console.ForegroundColor = ConsoleColor.DarkRed;
-                        Console.WriteLine("cwebp failed to compile {0}. It returned error code {1}.", imageFile,
+                        Console.WriteLine(Resources.ImageConversionError, imageFile,
                             converterProcess.ExitCode);
                     }
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.Write("[{0}] ", DateTime.Now);
+                        Console.Write(Resources.TimecodeFormatString, DateTime.Now);
                         Console.ForegroundColor = ConsoleColor.DarkGreen;
-                        Console.WriteLine("Finished converting {0}.", imageFile);
+                        Console.WriteLine(Resources.ImageConversionCompleteMessage, imageFile);
                     }
 
                     StringBuffer.Clear();
                 }
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
-                Console.WriteLine("\nThe task was completed.");
+                Console.WriteLine(Resources.TaskCompletedMessage);
                 Console.ResetColor();
             }
             catch (Exception e)
@@ -244,7 +246,7 @@ namespace RMMVWebPConverter
             }
 
             if (_settingsSet) return;
-            Console.WriteLine("Press Enter/Return to exit.");
+            Console.WriteLine(Resources.PushEnterToExit);
             Console.ReadLine();
         }
     }

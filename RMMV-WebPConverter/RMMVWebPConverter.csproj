@@ -13,7 +13,7 @@
     <Authors>AceOfAces</Authors>
     <Company>Studio ACE</Company>
     <Product>RPG Maker Utilities</Product>
-    <Copyright>Copyright © 2019 Studio ACE. RPG Maker MV: KADOKAWA/YOJI OJIMA</Copyright>
+    <Copyright>Copyright © 2020 Studio ACE. RPG Maker MV: KADOKAWA/YOJI OJIMA</Copyright>
     <RepositoryUrl>https://github.com/acemod13/RMMVWebPConverter</RepositoryUrl>
     <Description>This small command line cwebp wrapper app converts image files to WebP files so RPG Maker MV can load them (It works with the same idea that the Opus converter tool works). WebP can provide smaller file size while having the same image quality. The tool implements both the lossless and lossy conversions as well.</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -22,6 +22,7 @@
     <TieredCompilationQuickJit>true</TieredCompilationQuickJit>
     <PublishReadyToRun>true</PublishReadyToRun>
     <PublishTrimmed>true</PublishTrimmed>
+    <PackageReleaseNotes>-Initial release</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -36,6 +37,21 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
