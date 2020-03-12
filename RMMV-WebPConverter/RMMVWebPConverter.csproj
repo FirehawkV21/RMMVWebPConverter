@@ -5,8 +5,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>RMMVWebPConverter</RootNamespace>
     <StartupObject>RMMVWebPConverter.Program</StartupObject>
-    <AssemblyVersion>1.0.0.20071</AssemblyVersion>
-    <FileVersion>1.0.0.20071</FileVersion>
+    <AssemblyVersion>1.0.0.20072</AssemblyVersion>
+    <FileVersion>1.0.0.20072</FileVersion>
     <AssemblyName>RMMVWebPConverter</AssemblyName>
     <PackageId>StudioACE.RMMVWebPConverter</PackageId>
     <Version>1.0.0-20200312</Version>
