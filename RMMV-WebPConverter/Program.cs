@@ -18,7 +18,7 @@ namespace RMMVWebPConverter
         private static bool _settingsSet;
         private static readonly StringBuilder StringBuffer = new StringBuilder();
         private const string LosslessConversionSetup = " -z 9 -sharp_yuv -mt -quiet -o ";
-        private static readonly StringBuilder LossyConversionSetup = new StringBuilder(" -m 6 -q 75 -sharp_yuv -mt -quiet -o ");
+        private static readonly StringBuilder LossyConversionSetup = new StringBuilder(" -m 6 -q 85 -sharp_yuv -mt -quiet -o ");
         private static readonly ProcessStartInfo ConverterInfo = new ProcessStartInfo();
 
         static void Main(string[] args)
@@ -28,7 +28,7 @@ namespace RMMVWebPConverter
             Console.WriteLine(Resources.ProgramVersion, Assembly.GetExecutingAssembly().GetName().Version);
             Console.WriteLine(Resources.ProgramAuthor);
             Console.WriteLine(Resources.ProgramLicense);
-            Console.WriteLine(Resources.ProgramTitle);
+            Console.WriteLine(Resources.SpliterText);
             Console.WriteLine();
 
             for (int i = 0; i < args.Length; i++)
@@ -121,7 +121,7 @@ namespace RMMVWebPConverter
                             {
                                 Console.ForegroundColor = ConsoleColor.DarkGreen;
                                 Console.WriteLine(Resources.LossyImageQualitySet, qualitySetting);
-                                LossyConversionSetup.Replace("-q 75", "-q " + qualitySetting);
+                                LossyConversionSetup.Replace("-q 85", "-q " + qualitySetting);
                                 Console.ResetColor();
                             }
                         }
