@@ -4,8 +4,8 @@
 This small command line cwebp wrapper app converts image files to WebP files so RPG Maker MV can load them (It works with the same idea that the [Opus converter tool](https://github.com/acemod13/RMMVOpusConverter) works). WebP can provide smaller file size while having the same image quality. The tool implements both the lossless and lossy conversions as well.
 
 ## System Requirements
-- Windows 7 Service Pack 1 or newer.
-- Google's WebP binaries. The cwebp app is required.
+- Windows 7 Service Pack 1 or newer/Ubunutu 18.04 or newer.
+- Google's WebP [binaries](https://developers.google.com/speed/webp/download). The cwebp app is required.
 
 ## Compiling
 
