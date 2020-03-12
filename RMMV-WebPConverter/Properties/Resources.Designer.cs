@@ -81,7 +81,8 @@ namespace RMMVWebPConverter.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Where&apos;s the location of the cwebp?.
+        ///   Looks up a localized string similar to 
+        ///Where&apos;s the location of the cwebp?.
         /// </summary>
         internal static string CwebpApplLocationQuestion {
             get {
@@ -90,7 +91,7 @@ namespace RMMVWebPConverter.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to \nWhere to put the converted images?.
+        ///   Looks up a localized string similar to Where to put the converted images?.
         /// </summary>
         internal static string DestinationFolderLocationQuestion {
             get {

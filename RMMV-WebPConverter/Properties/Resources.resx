@@ -137,7 +137,8 @@
     <value>The quality setting for the lossy conversion is set to {0}</value>
   </data>
   <data name="CwebpApplLocationQuestion" xml:space="preserve">
-    <value>Where's the location of the cwebp?</value>
+    <value>
+Where's the location of the cwebp?</value>
   </data>
   <data name="NoCwebpAppLocationSet" xml:space="preserve">
     <value>Please insert the path for cwebp.
@@ -165,7 +166,7 @@ Where are the files you want to convert to? </value>
 </value>
   </data>
   <data name="DestinationFolderLocationQuestion" xml:space="preserve">
-    <value>\nWhere to put the converted images?</value>
+    <value>Where to put the converted images?</value>
   </data>
   <data name="InvalidOptionMessage" xml:space="preserve">
     <value>Looks like you gave a non-integer number. Applying the default setting.</value>
