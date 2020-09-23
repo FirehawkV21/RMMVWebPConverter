@@ -2,14 +2,14 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>.net5</TargetFramework>
     <RootNamespace>RMMVWebPConverter</RootNamespace>
     <StartupObject>RMMVWebPConverter.Program</StartupObject>
-    <AssemblyVersion>1.0.0.20072</AssemblyVersion>
-    <FileVersion>1.0.0.20072</FileVersion>
+    <AssemblyVersion>1.0.1.20267</AssemblyVersion>
+    <FileVersion>1.0.1.20267</FileVersion>
     <AssemblyName>RMMVWebPConverter</AssemblyName>
     <PackageId>StudioACE.RMMVWebPConverter</PackageId>
-    <Version>1.0.0-20200312</Version>
+    <Version>1.0.1-20200923</Version>
     <Authors>AceOfAces</Authors>
     <Company>Studio ACE</Company>
     <Product>RPG Maker Utilities</Product>
@@ -21,8 +21,8 @@
     <TieredCompilation>true</TieredCompilation>
     <TieredCompilationQuickJit>true</TieredCompilationQuickJit>
     <PublishReadyToRun>true</PublishReadyToRun>
-    <PublishTrimmed>true</PublishTrimmed>
-    <PackageReleaseNotes>-Initial release</PackageReleaseNotes>
+    <PublishTrimmed>false</PublishTrimmed>
+    <PackageReleaseNotes> -Tweaks to improve the image quality slightly. </PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

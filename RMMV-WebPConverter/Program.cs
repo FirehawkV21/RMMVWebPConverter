@@ -17,8 +17,8 @@ namespace RMMVWebPConverter
         private static int _compressionMode;
         private static bool _settingsSet;
         private static readonly StringBuilder StringBuffer = new StringBuilder();
-        private const string LosslessConversionSetup = " -z 9 -sharp_yuv -mt -quiet -o ";
-        private static readonly StringBuilder LossyConversionSetup = new StringBuilder(" -m 6 -q 85 -sharp_yuv -mt -quiet -o ");
+        private const string LosslessConversionSetup = " -z 9 -af -alpha_filter best -sharp_yuv -mt -quiet -o ";
+        private static readonly StringBuilder LossyConversionSetup = new StringBuilder(" -m 6 -q 85 -af -pre 7 -alpha_filter best -sharp_yuv -mt -quiet -o ");
         private static readonly ProcessStartInfo ConverterInfo = new ProcessStartInfo();
 
         static void Main(string[] args)
