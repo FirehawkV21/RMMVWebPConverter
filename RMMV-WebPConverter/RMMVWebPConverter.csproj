@@ -5,11 +5,11 @@
     <TargetFramework>.net7.0</TargetFramework>
     <RootNamespace>RMMVWebPConverter</RootNamespace>
     <StartupObject>RMMVWebPConverter.Program</StartupObject>
-    <AssemblyVersion>1.1.0.22258</AssemblyVersion>
-    <FileVersion>1.1.0.22258</FileVersion>
+    <AssemblyVersion>1.1.0.22287</AssemblyVersion>
+    <FileVersion>1.1.0.22287</FileVersion>
     <AssemblyName>RMMVWebPConverter</AssemblyName>
     <PackageId>StudioACE.RMMVWebPConverter</PackageId>
-    <Version>1.1.0-20220915</Version>
+    <Version>1.1.0-20221014</Version>
     <Authors>AceOfAces</Authors>
     <Company>Studio ACE</Company>
     <Product>RPG Maker Utilities</Product>
