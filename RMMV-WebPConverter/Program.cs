@@ -1,8 +1,5 @@
 ﻿using RMMVWebPConverter.Properties;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -16,10 +13,10 @@ namespace RMMVWebPConverter
         private static string _dropLocation;
         private static int _compressionMode;
         private static bool _settingsSet;
-        private static readonly StringBuilder StringBuffer = new StringBuilder();
+        private static readonly StringBuilder StringBuffer = new();
         private const string LosslessConversionSetup = " -z 9 -af -pass 10 -alpha_filter best -sharp_yuv -mt -quiet -o ";
-        private static readonly StringBuilder LossyConversionSetup = new StringBuilder(" -m 6 -q 85 -af -pass 10 -pre 7 -alpha_filter best -sharp_yuv -mt -quiet -o ");
-        private static readonly ProcessStartInfo ConverterInfo = new ProcessStartInfo();
+        private static readonly StringBuilder LossyConversionSetup = new(" -m 6 -q 85 -af -pass 10 -pre 7 -alpha_filter best -sharp_yuv -mt -quiet -o ");
+        private static readonly ProcessStartInfo ConverterInfo = new();
 
         static void Main(string[] args)
         {
